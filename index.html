@@ -1,0 +1,131 @@
+# program MesinKasir
+
+import os
+
+total = 0
+daftar_menu = []
+daftar_harga = []
+daftar_qty = []
+
+while True:
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+    print('========== MENU MINUMAN ==========')
+    print('1. Matcha')
+    print('2. Taro')
+    print('3. Coklat')
+    print('4. Red Velvet')
+    print('5. Kopi')
+    print('6. Americano')
+    print('7. Lemon Tea')
+    print('8. Coffucino')
+    print('9. Kopi Latte')
+    print('10. Strawberry Tea')
+    print('11. Kopi Susu')
+    print('12. Lotus')
+    print('13. Gula Aren')
+    print('14. Vanila Coff')
+    print('15. Tiramisu')
+    print('16. Kopi Caramel')
+    print('17. Visixty')
+    print('18. Japanesh')
+    print('19. Kopi Hitam')
+    print('20. Sanger')
+    print('==================================')
+
+    pilihan = int(input('Pilih menu (1-20): '))
+
+    # Menentukan harga
+    if (pilihan >= 1) and (pilihan <= 10):
+        harga = 13000
+    elif (pilihan >= 11) and (pilihan <= 13):
+        harga = 15000
+    elif (pilihan >= 14) and (pilihan <= 16):
+        harga = 16000
+    elif (pilihan >= 17) and (pilihan <= 18):
+        harga = 20000
+    elif pilihan == 19:
+        harga = 8000
+    elif pilihan == 20:
+        harga = 14000
+    else:
+        print('Menu tidak tersedia')
+        input()
+        continue
+
+    # Nama menu
+    if pilihan == 1:
+        menu = 'Matcha'
+    elif pilihan == 2:
+        menu = 'Taro'
+    elif pilihan == 3:
+        menu = 'Coklat'
+    elif pilihan == 4:
+        menu = 'Red Velvet'
+    elif pilihan == 5:
+        menu = 'Kopi'
+    elif pilihan == 6:
+        menu = 'Americano'
+    elif pilihan == 7:
+        menu = 'Lemon Tea'
+    elif pilihan == 8:
+        menu = 'Coffucino'
+    elif pilihan == 9:
+        menu = 'Kopi Latte'
+    elif pilihan == 10:
+        menu = 'Strawberry Tea'
+    elif pilihan == 11:
+        menu = 'Kopi Susu'
+    elif pilihan == 12:
+        menu = 'Lotus'
+    elif pilihan == 13:
+        menu = 'Gula Aren'
+    elif pilihan == 14:
+        menu = 'Vanila Coff'
+    elif pilihan == 15:
+        menu = 'Tiramisu'
+    elif pilihan == 16:
+        menu = 'Kopi Caramel'
+    elif pilihan == 17:
+        menu = 'Visixty'
+    elif pilihan == 18:
+        menu = 'Japanesh'
+    elif pilihan == 19:
+        menu = 'Kopi Hitam'
+    elif pilihan == 20:
+        menu = 'Sanger'
+
+    qty = int(input('Masukkan jumlah pesanan: '))
+
+    subtotal = harga * qty
+    total += subtotal
+
+    daftar_menu.append(menu)
+    daftar_harga.append(harga)
+    daftar_qty.append(qty)
+
+    print('Ditambahkan:', menu, 'x', qty, '= Rp', subtotal)
+
+    lagi = input('Tambah pesanan? (y/t): ')
+    if lagi.lower() != 'y':
+        break
+
+# Pembayaran
+bayar = int(input('Masukkan uang pembayaran : Rp'))
+kembalian = bayar - total
+
+os.system('cls' if os.name == 'nt' else 'clear')
+
+print('=========== STRUK PEMBAYARAN ===========')
+for i in range(len(daftar_menu)):
+    print(f'{i+1}. {daftar_menu[i]} x{daftar_qty[i]} @Rp{daftar_harga[i]} = Rp{daftar_harga[i]*daftar_qty[i]}')
+
+print('----------------------------------------')
+print('Total           : Rp', total)
+print('Uang dibayar    : Rp', bayar)
+print('Kembalian       : Rp', kembalian)
+print('----------------------------------------')
+print('Terima kasih telah membeli')
+print('========================================')
+
+input()
